@@ -1,0 +1,49 @@
+<div>
+    Your gold: <%= session[:gold] %>
+    <form action="/rpgs/reset" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <input type="submit" name="reset" value="reset">
+    </form>
+</div>
+<div class="build">
+<form action="/rpgs/farm" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <h1>Farm</h1>
+    <h4 class="count">(earn 10-20 golds)</h4>
+    <input type="hidden" name="action" value="farm">
+    <input class="button" type="submit" value="Find Gold!">
+</form>
+</div>
+<div class="build">
+    <form action="/rpgs/cave" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <h1>Cave</h1>
+    <h4 class="count">(earn 5-10 golds)</h4>
+    <input type="hidden" name="action" value="cave">
+    <input class="button" type="submit" value="Find Gold!">
+    </form>
+</div>
+<div class="build">
+    <form action="/rpgs/house" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <h1>House</h1>
+    <h4 class="count">(earn 2-5 golds)</h4>
+    <input type="hidden" name="action" value="house">
+    <input class="button" type="submit" value="Find Gold!">
+    </form>
+</div>
+<div class="build">
+    <form action="/rpgs/casino" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <h1>Casino</h1>
+    <h4 class="count">(earn/takes 0-50 golds)</h4>
+    <input type="hidden" name="action" value="casino">
+    <input type="submit" value="Find Gold!">
+    </form>
+</div>
+<div class="active">
+    Activities:
+    <% session[:messages].reverse_each do |message| %>
+            <p class="activity"><%= message %></p
+    <% end %>
+</div>
